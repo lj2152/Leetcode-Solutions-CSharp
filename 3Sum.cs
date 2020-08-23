@@ -42,52 +42,56 @@ public class Solution {
 }
 
 //Solution 2 ->  O(N ^2)
+	public class Solution
+	{
+		public IList<IList<int>> ThreeSum(int[] array)
+		{
+			Array.Sort(array);
+			var triplets = new List<IList<int>>();
 
-public class Solution {
-	public IList < IList < int >> ThreeSum(int[] array) {
-
-		Array.Sort(array);
-		var triplets = new List < IList < int >> ();
-
-		for (int i = 0; i < array.Length - 2; i++) {
-			if (array[i] > 0) 
+			for (int i = 0; i < array.Length - 2; i++)
 			{
-			    break;
-			}
-			//since the array is sorted, we can check if the previous index is the same as the current, if so keep looping..
-			if (i > 0 && array[i] == array[i - 1]) 
-			{
-			   continue;
-			}
-			int left = i + 1;
-			int right = array.Length - 1;
-			int target = 0 - array[i];
-			while (left < right) {
-				int currentSum = array[left] + array[right];
-				if (currentSum < target) {
-					left++;
+				if (array[i] > 0) break;
+
+				if (i > 0 && array[i] == array[i - 1])
+				{
+					continue;
 				}
-				else if (currentSum > target) {
-					right--;
-				}
-				else {
-					var newTriplet = new List < int > {array[i], array[left],array[right]};
-					triplets.Add(newTriplet);
-					
-					while (left < right && array[left] == array[left + 1]) {
+				int left = i + 1;
+				int right = array.Length - 1;
+				int target = 0 - array[i];
+				while (left < right)
+				{
+					int currentSum = array[left] + array[right];
+					if (currentSum < target)
+					{
 						left++;
-					}					
-					while (left < right && array[right] == array[right - 1]) {
+					}
+					else if (currentSum > target)
+					{
 						right--;
-					}					
-					left++;
-					right--;
+					}
+					else
+					{
+						var newTriplet = new List<int> { array[i], array[left], array[right] };
+
+						triplets.Add(newTriplet);
+						while (left < right && array[left] == array[left + 1])
+						{
+							left++;
+						}
+						while (left < right && array[right] == array[right - 1])
+						{
+							right--;
+						}
+						left++;
+						right--;
+					}
+
 				}
 
 			}
 
+			return triplets;
 		}
-
-		return triplets;
 	}
-}
