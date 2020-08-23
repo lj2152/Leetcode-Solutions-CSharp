@@ -7,21 +7,21 @@
         
         var monthDict = new Dictionary<string,string>(){ {"Jan","01"},{"Feb","02"},{"Mar","03"},{"Apr","04"},{"May","05"},{"Jun","06"},{"Jul","07"},{"Aug","08"},{"Sep","09"},{"Oct","10"},{"Nov","11"},{"Dec","12"}};
         
-		//year
+	//year
         var year = splitDate[2];
         reformatted.Append(year);
         reformatted.Append("-");
 		
-		//month
+	//month
         var monthString = splitDate[1];
         reformatted.Append(monthDict[monthString]);
         reformatted.Append("-");
         
-		//day
+	//day
         var dayString = splitDate[0];
         var lengthOfDayWithoutSuffix = dayString.Length-2;     
 		
-		reformatted.Append(lengthOfDayWithoutSuffix < 2 ? "0" : "");
+	reformatted.Append(lengthOfDayWithoutSuffix < 2 ? "0" : "");
         
         for(int i = 0; i< lengthOfDayWithoutSuffix;i++)
         {
