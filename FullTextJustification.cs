@@ -23,12 +23,11 @@
                     {
                         break;
                     }
-					//include the length of the next word into the totalCharsOfCurrentWord + the space.
-					else
-					{
-						totalCharsOfCurrentLine = lineLengthWithNextWord;
-					}
-                    
+		    //include the length of the next word into the totalCharsOfCurrentWord + the space.
+		    else
+		    {
+			totalCharsOfCurrentLine = lineLengthWithNextWord;
+		    }                    
                     nextWordIndex++;
                 }
 
@@ -45,7 +44,7 @@
                     }
 
                     //remove last space...
-                   sb.Length--; 
+                    sb.Length--; 
                     while (sb.Length < maxWidth)
                     {
                         sb.Append(' ');
